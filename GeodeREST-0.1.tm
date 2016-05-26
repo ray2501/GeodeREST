@@ -99,7 +99,9 @@ oo::class create GeodeREST {
 
         if {[string compare $res "ok"]==0} {
             set parse_result [json::json2dict $response]
-            set regions [dict get $parse_result regions]
+            if {[catch {set regions [dict get $parse_result regions]}]} {
+                return {}
+            }
 
             set names [list]
             foreach myregion $regions {
