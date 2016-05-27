@@ -6,6 +6,11 @@ GeodeREST
 reliable transaction processing and a shared-nothing architecture to maintain
 very low latency performance with high concurrency processing.
 
+[Gemcached] (http://geode.docs.pivotal.io/docs/tools_modules/gemcached/chapter_overview.html) is
+a Geode adapter that allows Memcached clients to communicate with a
+Geode server cluster, as if the servers were memcached servers.
+So User can use memcached clients to access data stored in embedded Gemcached servers.
+
 This extension is an Apache Geode REST Client Library for [Tcl] (http://tcl.tk).
 The library consists of a single [Tcl Module] (http://tcl.tk/man/tcl8.6/TclCmd/tm.htm#M9) file.
 
@@ -58,7 +63,7 @@ Example
     puts "specified parameterized query:"
     $mygeode new_query "myQuery" {SELECT * FROM /regionA r WHERE r.hello = $1}
     puts [$mygeode list_all_queries]
-    puts [$mygeode run_query "myQuery" {[{"@type": "string", "@value": 'Beautiful world'}]}]
+    puts [$mygeode run_query "myQuery" {[{"@type": "string", "@value": "Beautiful world"}]}]
     $mygeode delete_query "myQuery"
 
 
