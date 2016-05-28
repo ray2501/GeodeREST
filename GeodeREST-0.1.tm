@@ -84,6 +84,27 @@ oo::class create GeodeREST {
     }
 
     #
+    # Try to connect and get status code
+    #
+    method connect {} {
+        my variable headerl
+        my variable names
+        my variable parse_result
+        my variable regions
+
+        set [namespace current]::response ""
+        set headerl [list Accept "application/json"]
+
+        set res [my send_request $baseurl GET $headerl]
+
+        if {[string compare $res "ok"]==0} {
+            return 1
+        }
+
+        return 0
+    }
+
+    #
     # List all available resources (regions) in the Geode cluster
     #
     method list_all_regions {} {

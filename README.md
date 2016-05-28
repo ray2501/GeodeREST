@@ -34,6 +34,10 @@ Example
     package require GeodeREST
 
     set mygeode [GeodeREST new http://localhost:8080]
+    if {[$mygeode connect]==0} {
+        puts "Http status code is not OK, exit"
+        exit
+    }
 
     puts "Current regions:"
     puts [$mygeode list_all_regions]
