@@ -11,6 +11,9 @@ a Geode adapter that allows Memcached clients to communicate with a
 Geode server cluster, as if the servers were memcached servers.
 So User can use memcached clients to access data stored in embedded Gemcached servers.
 
+The other method is using Apache Geode
+[REST APIs] (http://geode.docs.pivotal.io/docs/rest_apps/book_intro.html) to access region data.
+
 This extension is an Apache Geode REST Client Library for [Tcl] (http://tcl.tk).
 The library consists of a single [Tcl Module] (http://tcl.tk/man/tcl8.6/TclCmd/tm.htm#M9) file.
 
