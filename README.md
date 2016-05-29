@@ -70,4 +70,17 @@ Example
     puts [$mygeode run_query "myQuery" {[{"@type": "string", "@value": "Beautiful world"}]}]
     $mygeode delete_query "myQuery"
 
+## HTTPS support
+
+If user enables HTTPS support, below is an example:
+
+    package require GeodeREST
+
+    set mygeode [GeodeREST new https://localhost:8080 1]
+    if {[$mygeode connect]==0} {
+        puts "Http status code is not OK, exit"
+        exit
+    }
+
+Please notice, I use [TLS extension] (http://tls.sourceforge.net/) to add https support. So https support needs TLS extension.
 
