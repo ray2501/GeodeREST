@@ -6,6 +6,10 @@ GeodeREST
 reliable transaction processing and a shared-nothing architecture to maintain
 very low latency performance with high concurrency processing.
 
+Java users can use the Geode client API or embedded using the Geode peer API.
+The other method is [Spring Data GemFire] (http://projects.spring.io/spring-data-gemfire/) 
+or [Spring Cache] (http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html).
+
 [Gemcached] (http://geode.docs.pivotal.io/docs/tools_modules/gemcached/chapter_overview.html) is
 a Geode adapter that allows Memcached clients to communicate with a
 Geode server cluster, as if the servers were memcached servers.
