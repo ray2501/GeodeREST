@@ -68,6 +68,13 @@ Example
 
 ## Query example 
 
+Apache Geode provides a SQL-like querying language called
+OQL (Object Query Language) that allows you to access data
+stored in Geode regions.
+
+Using REST APIs, you can create and execute either prepared
+or ad-hoc queries on Geode regions.
+
     puts "adhoc query:"
     puts [$mygeode adhoc_query "SELECT * FROM /regionA"]
 
