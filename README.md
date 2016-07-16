@@ -15,6 +15,12 @@ a Geode adapter that allows Memcached clients to communicate with a
 Geode server cluster, as if the servers were memcached servers.
 So User can use memcached clients to access data stored in embedded Gemcached servers.
 
+[Geode Redis Adapter] (http://geode.docs.pivotal.io/docs/tools_modules/redis_adapter.html) called
+GemFireRedisServer, understands the Redis protocol but uses Geode underneath as
+the data store. The point of emphasis in this server adapter is to handle all of
+the data types normally implemented in Redis. This includes Strings, Lists,
+Hashes, Sets and SortedSets and HyperLogLogs.
+
 The other method is using Apache Geode
 [REST APIs] (http://geode.docs.pivotal.io/docs/rest_apps/book_intro.html) to access region data.
 
