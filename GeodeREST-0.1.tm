@@ -507,5 +507,44 @@ oo::class create GeodeREST {
 
         return {}
     }
+
+    #
+    # Check for REST API server and service availability
+    #
+    method ping {} {
+        my variable myurl
+
+        set myurl "$baseurl/ping"
+        set res [my send_request $myurl HEAD]
+
+        if {[string compare $res "ok"]==0} {
+            return 1
+        }
+
+        return 0
+    }
+
+    #
+    # Obtain a list of all members in the distributed system
+    # that are running the REST API service
+    #
+    method list_all_servers {} {
+        my variable headerl
+        my variable parse_result
+        my variable myurl
+
+        set [namespace current]::response ""
+        set headerl [list Accept "application/json"]
+
+        set myurl "$baseurl/servers"
+        set res [my send_request $myurl GET $headerl]
+
+        if {[string compare $res "ok"]==0} {
+            set parse_result [json::json2dict $response]
+            return $parse_result
+        }
+
+        return {}
+    }
 }
 
