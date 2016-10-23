@@ -481,5 +481,31 @@ oo::class create GeodeREST {
 
         return {}
     }
+
+    #
+    # List all registered Geode functions in the cluster
+    #
+    method list_all_functions {} {
+        my variable headerl
+        my variable parse_result
+        my variable functions
+        my variable myurl
+
+        set [namespace current]::response ""
+        set headerl [list Accept "application/json"]
+
+        set myurl "$baseurl/functions"
+        set res [my send_request $myurl GET $headerl]
+
+        if {[string compare $res "ok"]==0} {
+            set parse_result [json::json2dict $response]
+            if {[catch {set functions [dict get $parse_result functions]}]} {
+                return {}
+            }
+            return $functions
+        }
+
+        return {}
+    }
 }
 
