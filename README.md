@@ -6,7 +6,8 @@ GeodeREST
 reliable transaction processing and a shared-nothing architecture to maintain
 very low latency performance with high concurrency processing.
 
-Java users can use the Geode client API or embedded using the Geode peer API.
+Java users can use the Geode client API or embedded using the Geode peer API
+([API Reference] (http://geode.incubator.apache.org/releases/latest/javadoc/index.html)).
 The other method is [Spring Data GemFire] (http://projects.spring.io/spring-data-gemfire/) 
 or [Spring Cache] (http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html).
 
