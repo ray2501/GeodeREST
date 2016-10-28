@@ -107,7 +107,7 @@ Please notice, I use [TLS extension] (http://tls.sourceforge.net/) to add https 
 
 ## HTTP Basic Authentication support
 
-If use enable `org.apache.geode.security.SecurityManager` and setup
+If users enable `org.apache.geode.security.SecurityManager` and setup
 "security.json" file correctly, Geode use HTTP Basic Authentication
 for enforcing access controls to web resources (at version 1.1.0).
 
