@@ -31,7 +31,7 @@ The library consists of a single [Tcl Module] (http://tcl.tk/man/tcl8.6/TclCmd/t
 GeodeREST is using Tcl built-in package http to send request to Apache Geode server
 REST interface and get response.
 
-This extension needs Tcl 8.6 and tcllib json package.
+This extension needs Tcl 8.6, tcllib base64 and tcllib json package.
 
 
 Interface
@@ -104,4 +104,22 @@ If user enables HTTPS support, below is an example:
     }
 
 Please notice, I use [TLS extension] (http://tls.sourceforge.net/) to add https support. So https support needs TLS extension.
+
+## HTTP Basic Authentication support
+
+If use enable `org.apache.geode.security.SecurityManager` and setup
+"security.json" file correctly, Geode use HTTP Basic Authentication
+for enforcing access controls to web resources (at version 1.1.0).
+
+    package require GeodeREST
+
+    set mygeode [GeodeREST new https://localhost:8080 1]
+    $mygeode setAuthType "basic"
+    $mygeode setUsername "joebloggs"
+    $mygeode setPassword "1234567"
+
+    if {[$mygeode connect]==0} {
+        puts "Http status code is not OK, exit"
+        exit
+    }
 

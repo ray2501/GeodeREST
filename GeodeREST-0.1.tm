@@ -32,12 +32,16 @@ package require Tcl 8.6
 package require TclOO
 package require http
 package require json
+package require base64
 
 package provide GeodeREST 0.1
 
 oo::class create GeodeREST {
     variable server
     variable ssl_enabled
+    variable authtype
+    variable username
+    variable password
     variable response
     variable baseurl
     variable region
@@ -45,6 +49,9 @@ oo::class create GeodeREST {
     constructor {{SERVER http://localhost:8080} {SSL_ENABLED 0}} {
         set server $SERVER
         set ssl_enabled $SSL_ENABLED
+        set authtype "no"
+        set username ""
+        set password ""
         set response ""
         set baseurl "$SERVER/gemfire-api/v1"
         set region ""
@@ -61,8 +68,26 @@ oo::class create GeodeREST {
     destructor {
     }
 
+    method setAuthType {AUTHTYPE} {
+        # setup to "no" or "basic"
+        set authtype $AUTHTYPE
+    }
+
+    method setUsername {USERNAME} {
+        set username $USERNAME
+    }
+
+    method setPassword {PASSWORD} {
+        set password $PASSWORD
+    }
+
     method send_request {url method {headers ""} {data ""}} {
         variable tok
+
+        if {[string compare -nocase $authtype "basic"]==0} {
+            set auth "Basic [base64::encode $username:$password]"
+            lappend headers Authorization $auth
+        }
 
         if {[string length $data] < 1} {
             if {[catch {set tok [http::geturl $url -method $method \
