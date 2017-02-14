@@ -102,9 +102,15 @@ oo::class create GeodeREST {
         }
 
         set res [http::status $tok]
+        set ncode [::http::ncode $tok]
         set [namespace current]::response [http::data $tok]
 
         http::cleanup $tok
+
+        if {$ncode != 200} {
+            return "error"
+        }
+
         return $res
     }
 
