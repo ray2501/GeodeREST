@@ -13,6 +13,8 @@ Java users can use the Geode
 The other method is [Spring Data GemFire] (http://projects.spring.io/spring-data-gemfire/) 
 or [Spring Cache] (http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html).
 
+For C++ or C# users, you can check [Apache Geode native components] (https://github.com/apache/geode-native).
+
 [Gemcached] (http://geode.apache.org/docs/guide/tools_modules/gemcached/chapter_overview.html) is
 a Geode adapter that allows Memcached clients to communicate with a
 Geode server cluster, as if the servers were memcached servers.
@@ -112,6 +114,8 @@ Please notice, I use [TLS extension] (http://tls.sourceforge.net/) to add https 
 If users enable `org.apache.geode.security.SecurityManager` and setup
 "security.json" file correctly, Geode use HTTP Basic Authentication
 for enforcing access controls to web resources (at version 1.1.0).
+You can get more info at
+[Using Custom SecurityManager] (https://cwiki.apache.org/confluence/display/GEODE/Using+Custom+SecurityManager).
 
     package require GeodeREST
 
