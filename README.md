@@ -2,35 +2,35 @@
 GeodeREST
 =====
 
-[Apache Geode] (http://geode.apache.org/) provides a database-like consistency model,
+[Apache Geode](http://geode.apache.org/) provides a database-like consistency model,
 reliable transaction processing and a shared-nothing architecture to maintain
 very low latency performance with high concurrency processing.
 
 Java users can use the Geode
-[client] (http://geode.apache.org/docs/guide/topologies_and_comm/cs_configuration/chapter_overview.html) or
-[peer] (http://geode.apache.org/docs/guide/topologies_and_comm/p2p_configuration/chapter_overview.html) API
-([API Reference] (http://geode.incubator.apache.org/releases/latest/javadoc/index.html)).
-The other method is [Spring Data GemFire] (http://projects.spring.io/spring-data-gemfire/) 
-or [Spring Cache] (http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html).
+[client](http://geode.apache.org/docs/guide/topologies_and_comm/cs_configuration/chapter_overview.html) or
+[peer](http://geode.apache.org/docs/guide/topologies_and_comm/p2p_configuration/chapter_overview.html) API
+([API Reference](http://geode.incubator.apache.org/releases/latest/javadoc/index.html)).
+The other method is [Spring Data GemFire](http://projects.spring.io/spring-data-gemfire/) 
+or [Spring Cache](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html).
 
-For C++ or C# users, you can check [Apache Geode native components] (https://github.com/apache/geode-native).
+For C++ or C# users, you can check [Apache Geode native components](https://github.com/apache/geode-native).
 
-[Gemcached] (http://geode.apache.org/docs/guide/tools_modules/gemcached/chapter_overview.html) is
+[Gemcached](http://geode.apache.org/docs/guide/tools_modules/gemcached/chapter_overview.html) is
 a Geode adapter that allows Memcached clients to communicate with a
 Geode server cluster, as if the servers were memcached servers.
 So User can use memcached clients to access data stored in embedded Gemcached servers.
 
-[Geode Redis Adapter] (http://geode.apache.org/docs/guide/tools_modules/redis_adapter.html) called
+[Geode Redis Adapter](http://geode.apache.org/docs/guide/tools_modules/redis_adapter.html) called
 GemFireRedisServer, understands the Redis protocol but uses Geode underneath as
 the data store. The point of emphasis in this server adapter is to handle all of
 the data types normally implemented in Redis. This includes Strings, Lists,
 Hashes, Sets and SortedSets and HyperLogLogs.
 
 The other method is using Apache Geode
-[REST APIs] (http://geode.apache.org/docs/guide/rest_apps/book_intro.html) to access region data.
+[REST APIs](http://geode.apache.org/docs/guide/rest_apps/book_intro.html) to access region data.
 
-This extension is an Apache Geode REST Client Library for [Tcl] (http://tcl.tk).
-The library consists of a single [Tcl Module] (http://tcl.tk/man/tcl8.6/TclCmd/tm.htm#M9) file.
+This extension is an Apache Geode REST Client Library for [Tcl](http://tcl.tk).
+The library consists of a single [Tcl Module](http://tcl.tk/man/tcl8.6/TclCmd/tm.htm#M9) file.
 
 GeodeREST is using Tcl built-in package http to send request to Apache Geode server
 REST interface and get response.
@@ -107,7 +107,7 @@ If user enables HTTPS support, below is an example:
         exit
     }
 
-Please notice, I use [TLS extension] (http://tls.sourceforge.net/) to add https support. So https support needs TLS extension.
+Please notice, I use [TLS extension](http://tls.sourceforge.net/) to add https support. So https support needs TLS extension.
 
 ## HTTP Basic Authentication support
 
@@ -115,7 +115,7 @@ If users enable `org.apache.geode.security.SecurityManager` and setup
 "security.json" file correctly, Geode use HTTP Basic Authentication
 for enforcing access controls to web resources (at version 1.1.0).
 You can get more info at
-[Using Custom SecurityManager] (https://cwiki.apache.org/confluence/display/GEODE/Using+Custom+SecurityManager).
+[Using Custom SecurityManager](https://cwiki.apache.org/confluence/display/GEODE/Using+Custom+SecurityManager).
 
     package require GeodeREST
 
