@@ -2,7 +2,7 @@
 #
 #	Apache Geode REST Client Library for Tcl
 #
-# Copyright (C) 2016 Danilo Chang <ray2501@gmail.com>
+# Copyright (C) 2016-2026 Danilo Chang <ray2501@gmail.com>
 #
 # Retcltribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -34,7 +34,7 @@ package require http
 package require json
 package require base64
 
-package provide GeodeREST 0.1
+package provide GeodeREST 0.2
 
 oo::class create GeodeREST {
     variable server
@@ -58,7 +58,10 @@ oo::class create GeodeREST {
 
         if {$ssl_enabled} {
             if {[catch {package require tls}]==0} {
-                http::register https 443 [list ::tls::socket -ssl3 0 -ssl2 0 -tls1 1]
+                set protocol "http/1.1"
+                http::register https 443 [list ::tls::socket -autoservername 1 \
+                                          -require 0 -alpn \
+                                          [list [string tolower $protocol]]]
             } else {
                 error "SSL_ENABLED needs package tls..."
             }

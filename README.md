@@ -118,6 +118,11 @@ for enforcing access controls to web resources (at version 1.1.0).
 You can get more info at
 [Using Custom SecurityManager](https://cwiki.apache.org/confluence/display/GEODE/Using+Custom+SecurityManager).
 
+Pleaes notice: in Java 17, the Security Manager was deprecated for removal
+under JEP 411. With JDK 24, its functionality will be effectively disabled.
+So you could not setup HTTP Basic Authentication support for Apache Geode by
+using SecurityManager since JDK 24.
+
     package require GeodeREST
 
     set mygeode [GeodeREST new https://localhost:8080 1]
